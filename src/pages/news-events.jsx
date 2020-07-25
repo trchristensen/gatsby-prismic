@@ -69,7 +69,7 @@ const Blog = ({ posts, meta }) => (
         />
         <Layout>
             <BlogTitle>
-                Blog
+                News &amp; Events
             </BlogTitle>
             <BlogGrid>
                 {posts.map((post, i) => (

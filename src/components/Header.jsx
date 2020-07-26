@@ -2,17 +2,46 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
-// import dimensions from "styles/dimensions";
+import dimensions from "styles/dimensions";
 import Logo from "components/_ui/Logo";
 
+const Header = () => (
+  <>
+    <HeaderContainer>
+      <HeaderContent>
+        <Link to="/">
+          <Logo />
+        </Link>
+        <HeaderLinks>
+          <Link activeClassName="Link--is-active" to="/about">
+            About
+          </Link>
+          <Link activeClassName="Link--is-active" to="/work">
+            Work
+          </Link>
+          <Link activeClassName="Link--is-active" to="/news-events">
+            News &amp; Events
+          </Link>
+          <Link activeClassName="Link--is-active" to="/contact">
+            Contact
+          </Link>
+        </HeaderLinks>
+      </HeaderContent>
+    </HeaderContainer>
+  </>
+)
+
+export default Header;
+
+
 const HeaderContainer = styled("div")`
-    padding-top: 3.75em;
-    padding-bottom: 3em;
+  padding-top: 3.75em;
+  padding-bottom: 3em;
 `
 
 const HeaderContent = styled("div")`
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 `
 
 const HeaderLinks = styled("div")`
@@ -20,6 +49,9 @@ const HeaderLinks = styled("div")`
   justify-content: space-between;
   flex-direction: row;
   width: calc(90% - 200px);
+  @media (max-width: ${dimensions.maxwidthTablet}px) {
+    display: none;
+  }
 
   a {
     color: currentColor;
@@ -64,29 +96,3 @@ const HeaderLinks = styled("div")`
     }
   }
 `
-
-const Header = () => (
-  <HeaderContainer>
-    <HeaderContent>
-      <Link to="/">
-        <Logo />
-      </Link>
-      <HeaderLinks>
-        <Link activeClassName="Link--is-active" to="/about">
-          About
-        </Link>
-        <Link activeClassName="Link--is-active" to="/work">
-          Work
-        </Link>
-        <Link activeClassName="Link--is-active" to="/news-events">
-          News &amp; Events
-        </Link>
-        <Link activeClassName="Link--is-active" to="/contact">
-          Contact
-        </Link>
-      </HeaderLinks>
-    </HeaderContent>
-  </HeaderContainer>
-)
-
-export default Header;

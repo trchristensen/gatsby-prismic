@@ -16,7 +16,15 @@ const WilbertBurialVaults = ({ Vaults, meta }) => (
       meta={meta}
     />
     <Layout>
-      <h1 className="mb-4">Wilbert Burial Vaults</h1>
+      <div className="mb-20">
+        <h1 className="mb-4">Wilbert Burial Vaults</h1>
+        <p className="p">
+          You want the best protection available for your loved ones. Years
+          after you select a Wilbert<sup className="text-xs">®</sup> brand reinforced burial vault,
+          you'll know that you made the right decision by choosing the highest
+          level of protection.
+        </p>
+      </div>
       <div class="row flex flex-wrap">
         {Vaults.map((vault, index) => {
           let v = vault.node
@@ -33,7 +41,7 @@ const WilbertBurialVaults = ({ Vaults, meta }) => (
                 />
               </div>
               <div class="w-full px-6 py-4">
-                <div class="font-bold text-xl">
+                <div class="font-bold text-l">
                   <h3>{v.name[0].text}</h3>
                 </div>
                 <div class="text-gray-700 text-base">

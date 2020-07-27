@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "components/Layout"
@@ -15,7 +15,6 @@ const About = ({ meta }) => (
     <Layout>
       <AboutTitle>About Us</AboutTitle>
       <>
-        <a href="mailto:hello@toddchristensen.net"></a>
       </>
     </Layout>
   </>

@@ -3,9 +3,12 @@ import { Link } from 'gatsby'
 import { pushRotate as Menu } from "react-burger-menu"
 
 export default props => {
+  
   return (
     // Pass on our props
-    <Menu {...props}>
+    <Menu
+      {...props}
+    >
       <Link activeClassName="Link--is-active" className="menu-item" to="/">
         Home
       </Link>

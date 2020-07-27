@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Layout from "components/Layout"
-import { Link } from "react-router-dom"
 import PageHelmet from "../components/_util/PageHelmet";
 
 const AboutTitle = styled("h1")`

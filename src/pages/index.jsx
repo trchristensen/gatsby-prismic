@@ -11,7 +11,7 @@ import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 import PostCard from 'components/PostCard';
 
-import PageHelmet from "../components/_util/PageHelmet"
+import PageHelmet from "components/_util/PageHelmet"
 
 const Hero = styled("div")`
     padding-top: 2.5em;

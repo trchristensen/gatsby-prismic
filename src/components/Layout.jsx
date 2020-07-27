@@ -9,8 +9,8 @@ import dimensions from "styles/dimensions"
 import Footer from "components/Footer"
 import Header from "components/Header"
 import SideBar from "./Sidebar"
-import "styles/fonts.scss"
-import "styles/app.scss"
+// import "styles/fonts.scss"
+// import "styles/app.scss"
 
 const LayoutContainer = styled.div`
   transition: all 0.5s ease 0s;

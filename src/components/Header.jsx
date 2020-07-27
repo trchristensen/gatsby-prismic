@@ -13,16 +13,16 @@ const Header = () => (
           <Logo />
         </Link>
         <HeaderLinks>
-          <Link activeClassName="Link--is-active" to="/about">
-            About
+          <Link className="font-sans" className="font-sans" activeClassName="Link--is-active" to="/burial">
+            Burial
           </Link>
-          <Link activeClassName="Link--is-active" to="/work">
-            Work
+          <Link className="font-sans" activeClassName="Link--is-active" to="/cremation">
+            Cremation
           </Link>
-          <Link activeClassName="Link--is-active" to="/news-events">
+          <Link className="font-sans" activeClassName="Link--is-active" to="/news-events">
             News &amp; Events
           </Link>
-          <Link activeClassName="Link--is-active" to="/contact">
+          <Link className="font-sans" activeClassName="Link--is-active" to="/contact">
             Contact
           </Link>
         </HeaderLinks>

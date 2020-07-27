@@ -48,16 +48,19 @@ const FooterSpooch = styled("img")`
     margin-top: 0.25em;
 `
 
-const Footer = () => (
-    <FooterContainer>
-        <Link to="/">
-            <Logo />
-        </Link>
-        <FooterAuthor href="https://www.marguerite.io/?utm_source=prist&utm_medium=footer&utm_campaign=prist_starter">
-            © 2019 — Designed & developed by Marguerite Roth
-            <FooterSpooch className="FooterSpooch" src={spooch} />
-        </FooterAuthor>
-    </FooterContainer>
-)
+const Footer = () => {
+    const d = new Date;
+    const year = d.getFullYear();
+    return (
+        <FooterContainer>
+            <Link to="/">
+                <Logo />
+            </Link>
+            <FooterAuthor href="https://toddchristensen.net/?utm_source=christyvault&utm_medium=footer&utm_campaign=christyvault">
+                © {year} — toddchristensen.net
+            </FooterAuthor>
+        </FooterContainer>
+        )
+}
 
 export default Footer;

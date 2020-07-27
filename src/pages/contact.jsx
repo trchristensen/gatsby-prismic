@@ -6,50 +6,15 @@ import styled from "@emotion/styled"
 import Layout from "components/Layout"
 import { Link } from "react-router-dom"
 
+import PageHelmet from '../components/_util/PageHelmet'
+
 const ContactTitle = styled("h1")`
   margin-bottom: 1em;
 `
 
 const Contact = ({ meta }) => (
   <>
-    <Helmet
-      title={`Contact Us `}
-      titleTemplate={`%s | Contact | Prist, Gatsby & Prismic Starter`}
-      meta={[
-        {
-          name: `description`,
-          content: meta.description,
-        },
-        {
-          property: `og:title`,
-          content: `Contact | Prist, Gatsby & Prismic Starter`,
-        },
-        {
-          property: `og:description`,
-          content: meta.description,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: meta.author,
-        },
-        {
-          name: `twitter:title`,
-          content: meta.title,
-        },
-        {
-          name: `twitter:description`,
-          content: meta.description,
-        },
-      ].concat(meta)}
-    />
+    <PageHelmet title={meta.title} titleTemplate={`%s | Contact`} meta={meta} />
     <Layout>
       <ContactTitle>Contact Us</ContactTitle>
       <>

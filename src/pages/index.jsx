@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 import { RichText } from "prismic-reactjs";
 import { graphql, Link } from "gatsby";
 import styled from "@emotion/styled";
@@ -11,6 +10,8 @@ import About from "components/About";
 import Layout from "components/Layout";
 import ProjectCard from "components/ProjectCard";
 import PostCard from 'components/PostCard';
+
+import PageHelmet from "../components/_util/PageHelmet"
 
 const Hero = styled("div")`
     padding-top: 2.5em;
@@ -116,43 +117,10 @@ const BlogGrid = styled("div")`
 
 const RenderBody = ({ home, projects, meta, posts }) => (
   <>
-    <Helmet
-      title={meta.title}
-      titleTemplate={`%s | ${meta.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: meta.description,
-        },
-        {
-          property: `og:title`,
-          content: meta.title,
-        },
-        {
-          property: `og:description`,
-          content: meta.description,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: meta.author,
-        },
-        {
-          name: `twitter:title`,
-          content: meta.title,
-        },
-        {
-          name: `twitter:description`,
-          content: meta.description,
-        },
-      ].concat(meta)}
+    <PageHelmet
+       title={meta.title}
+      titleTemplate={`%s`}
+      meta={meta}
     />
     <Hero>
       <>{RichText.render(home.hero_title)}</>
@@ -161,7 +129,9 @@ const RenderBody = ({ home, projects, meta, posts }) => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Button>{RichText.render(home.hero_button_text)}</Button>
+        <WorkAction to={"/work"}>
+          <Button>{RichText.render(home.hero_button_text)}</Button>
+        </WorkAction>
       </a>
     </Hero>
     <Section>
@@ -184,21 +154,19 @@ const RenderBody = ({ home, projects, meta, posts }) => (
       <About bio={home.about_bio} socialLinks={home.about_links} />
     </Section>
     <Section>
-        <BlogTitle>
-                Recent News
-            </BlogTitle>
-            <BlogGrid>
-      {posts.map((post, i) => (
-        <PostCard
-          key={i}
-          author={post.node.post_author}
-          category={post.node.post_category}
-          title={post.node.post_title}
-          date={post.node.post_date}
-          description={post.node.post_preview_description}
-          uid={post.node._meta.uid}
-        />
-      ))}
+      <BlogTitle>Recent News</BlogTitle>
+      <BlogGrid>
+        {posts.map((post, i) => (
+          <PostCard
+            key={i}
+            author={post.node.post_author}
+            category={post.node.post_category}
+            title={post.node.post_title}
+            date={post.node.post_date}
+            description={post.node.post_preview_description}
+            uid={post.node._meta.uid}
+          />
+        ))}
       </BlogGrid>
     </Section>
   </>

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import { Link, graphql } from 'gatsby';
 import { RichText } from "prismic-reactjs";
 import Button from "components/_ui/Button";
 import Layout from "components/Layout";
+
+import ProjectHelmet from "../components/_util/ProjectHelmet";
 
 const ProjectHeroContainer = styled("div")`
     background: ${colors.grey200};
@@ -52,64 +53,23 @@ const WorkLink = styled(Link)`
 
 const Project = ({ project, meta }) => {
     return (
-        <>
-            <Helmet
-                title={`${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`}
-                titleTemplate={`%s | ${meta.title}`}
-                meta={[
-                    {
-                        name: `description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:title`,
-                        content: `${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`,
-                    },
-                    {
-                        property: `og:description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:type`,
-                        content: `website`,
-                    },
-                    {
-                        name: `twitter:card`,
-                        content: `summary`,
-                    },
-                    {
-                        name: `twitter:creator`,
-                        content: meta.author,
-                    },
-                    {
-                        name: `twitter:title`,
-                        content: meta.title,
-                    },
-                    {
-                        name: `twitter:description`,
-                        content: meta.description,
-                    },
-                ].concat(meta)}
-            />
-            <Layout>
-                <ProjectTitle>
-                    {RichText.render(project.project_title)}
-                </ProjectTitle>
-                {project.project_hero_image && (
-                    <ProjectHeroContainer>
-                        <img src={project.project_hero_image.url} alt="bees" />
-                    </ProjectHeroContainer>
-                )}
-                <ProjectBody>
-                    {RichText.render(project.project_description)}
-                    <WorkLink to={"/work"}>
-                        <Button className="Button--secondary">
-                            See other work
-                        </Button>
-                    </WorkLink>
-                </ProjectBody>
-            </Layout>
-        </>
+      <>
+        <ProjectHelmet project={project} meta={meta} />
+        <Layout>
+          <ProjectTitle>{RichText.render(project.project_title)}</ProjectTitle>
+          {project.project_hero_image && (
+            <ProjectHeroContainer>
+              <img src={project.project_hero_image.url} alt="bees" />
+            </ProjectHeroContainer>
+          )}
+          <ProjectBody>
+            {RichText.render(project.project_description)}
+            <WorkLink to={"/work"}>
+              <Button className="Button--secondary">See other work</Button>
+            </WorkLink>
+          </ProjectBody>
+        </Layout>
+      </>
     )
 }
 

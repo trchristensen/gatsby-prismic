@@ -9,7 +9,7 @@ const Header = () => (
   <>
     <HeaderContainer>
       <HeaderContent>
-        <Link to="/">
+        <Link id="logo" to="/">
           <Logo />
         </Link>
         <HeaderLinks>
@@ -37,18 +37,23 @@ export default Header;
 const HeaderContainer = styled("div")`
   padding-top: 3.75em;
   padding-bottom: 3em;
+  #logo {
+    min-width: 200px;
+    width: 10%;
+  }
 `
 
 const HeaderContent = styled("div")`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const HeaderLinks = styled("div")`
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
-  width: calc(90% - 200px);
+  width: 90%;
   @media (max-width: ${dimensions.maxwidthTablet}px) {
     display: none;
   }

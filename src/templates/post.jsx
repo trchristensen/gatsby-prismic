@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
 import Moment from 'react-moment';
 import { graphql } from 'gatsby';
 import { RichText } from "prismic-reactjs";
 import styled from "@emotion/styled";
 import colors from "styles/colors";
 import Layout from "components/Layout";
+import PostHelmet from "../components/_util/PostHelmet";
 
 const PostHeroContainer = styled("div")`
     max-height: 500px;
@@ -95,44 +95,7 @@ const PostDate = styled("div")`
 const Post = ({ post, meta }) => {
     return (
         <>
-            <Helmet
-                title={`${post.post_title[0].text} | Prist, Gatsby & Prismic Starter`}
-                titleTemplate={`%s | ${meta.title}`}
-                meta={[
-                    {
-                        name: `description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:title`,
-                        content: `${post.post_title[0].text} | Prist, Gatsby & Prismic Starter`,
-                    },
-                    {
-                        property: `og:description`,
-                        content: meta.description,
-                    },
-                    {
-                        property: `og:type`,
-                        content: `website`,
-                    },
-                    {
-                        name: `twitter:card`,
-                        content: `summary`,
-                    },
-                    {
-                        name: `twitter:creator`,
-                        content: meta.author,
-                    },
-                    {
-                        name: `twitter:title`,
-                        content: meta.title,
-                    },
-                    {
-                        name: `twitter:description`,
-                        content: meta.description,
-                    },
-                ].concat(meta)}
-            />
+            <PostHelmet post={post} meta={meta} />
             <Layout>
                 <PostCategory>
                     {RichText.render(post.post_category)}
